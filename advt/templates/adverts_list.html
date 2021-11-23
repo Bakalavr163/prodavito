@@ -38,9 +38,9 @@
                         <p class="card-text">{{ advt.price }} ₽</p>
                         <p class="card-text">{{ advt.address }}</p>
                         {% if advt.is_liked %}
-                            <a href="{% url 'advt-dislike' pk=advt.pk %}"><img src="/static/images/heart-red.png" alt=""></a>
+                            <a href="{% url 'advt-dislike' pk=advt.pk %}"><img src="{% static 'images/heart-red.png' %}" alt=""></a>
                         {% else %}
-                            <a href="{% url 'advt-like' pk=advt.pk %}"><img src="/static/images/heart-empty.png" alt=""></a>
+                            <a href="{% url 'advt-like' pk=advt.pk %}"><img src="{% static 'images/heart-empty.png' %}" alt=""></a>
                         {% endif %}
                         <span style="vertical-align: middle;">{{ advt.like_set.all|length }}</span>
                     </div>
@@ -54,7 +54,7 @@
     <div class="pagination mb-5">
         {% if page_obj.has_previous %}
             <a href="?page=1">
-                <img src="/static/images/arrow-left.png" alt="">
+                <img src="{% static 'images/arrow-left.png' %}" alt="">
             </a>
         {% endif %}
 
@@ -64,7 +64,7 @@
 
         {% if page_obj.has_next %}
             <a  href="?page={{ page_obj.next_page_number }}">
-                <img src="/static/images/arrow-right.png" alt="">
+                <img src="{% static 'images/arrow-right.png' %}" alt="">
             </a>
         {% endif %}
     </div>
